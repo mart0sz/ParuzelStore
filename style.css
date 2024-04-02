@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body button,
+body div {
+  transition: all 0.3s ease-in-out;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-title span:first-child {
+  color: violet;
+  margin-right: 5px;
+}
+.header-title span:last-child {
+  background: violet;
+  color: black;
+  border-radius: 25%;
+  max-width: max-content;
+  margin-left: 10px;
+  font-size: 20px;
+  padding: 3px 10px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
+.search-bar-input {
+  min-width: 400px;
+  font-size: 18px;
+  padding-left: 8px;
+  height: 100%;
+}
+
+.search-bar-icon {
+  background: violet;
+  padding: 2px 5px;
+  display: flex;
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
+.header-basket {
+  display: flex;
+  align-items: end;
+  font-size: 20px;
+  font-weight: 500;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.basket-clear-btn {
+  background: none;
+  color: violet;
+  border: none;
+  font-size: 20px;
+  align-self: start;
+  cursor: pointer;
+  display: none;
+}
+.basket-clear-btn.active {
+  display: block;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px;
+  gap: 15px;
+}
+
+.categories-title {
+  font-size: 35px;
+  letter-spacing: 1px;
+}
+
+.categories-items {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0px 10px;
+  justify-content: center;
+}
+
+.categories-items button {
+  font-size: 20px;
+  padding: 10px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.categories-items button:hover {
+  background: black;
+  color: violet;
+}
+
+.categories-items button.active {
+  background: black;
+  color: violet;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.product-item {
+  position: relative;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.product-item-sale-info {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: violet;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 5px;
+  opacity: 0.7;
+}
+
+.product-item.on-sale .product-item-sale-info {
+  display: block;
+}
+.product-item:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.product-item img {
+  width: 220px;
+}
+
+.product-name {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.product-description {
+  color: rgb(94, 94, 94);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.product-price {
+  color: darkgreen;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-price .price-sale {
+  display: none;
+}
+
+.product-item.on-sale .price {
+  color: black;
+  font-size: 13px;
+  position: relative;
+}
+
+.product-item.on-sale .price::before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 2px;
+  background: black;
+  top: 30%;
+  left: -5%;
+  transform: rotate(-10deg);
+}
+
+.product-item.on-sale .price-sale {
+  display: block;
+}
+
+.product-add-to-basket-btn {
+  background: black;
+  color: white;
+  width: 60%;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.product-add-to-basket-btn:hover {
+  color: violet;
+}
+
+.empty-state {
+  display: none;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+.empty-state.active {
+  display: block;
+}
+
+@media only screen and (min-width: 1300px) {
+  .container {
+    display: flex;
+  }
+  .categories-items {
+    flex-direction: column;
+  }
+  .categories {
+    margin: 0px;
+    border-right: 2px solid rgb(190, 190, 190);
+    min-width: 350px;
+  }
+  .categories-items button {
+    padding: 10px 50px;
+    border-radius: 5px;
+  }
+  .categories-title {
+    background: violet;
+    width: 100%;
+    text-align: center;
+    padding: 6px;
+  }
+  .products {
+    margin-left: 15px;
+    gap: 50px;
+  }
+}
+.author-title {
+  position: fixed; /* Ustawienie pozycji na stałe */
+  bottom: 0; /* Umiejscowienie na dole */
+  right: 0; /* Umiejscowienie na prawo */
+  margin: 10px; /* Zmniejszenie marginesów */
+}
+
+.author-info {
+  display:flex;
+  font-size: 10px;
+  text-align: end;
+}
+
+.basket-amount-button {
+  background-color: black;
+  color: white;
+  border: 0px;
+  font-size: 24px;
+}
+
+.basket-amount-button:hover {
+  color: violet;
+  cursor: pointer;
+}
+
+header .header-title a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Wyłączanie efektu hover dla linków w nagłówku h1 */
+header .header-title a:hover {
+  text-decoration: none;
+}
+
+.basket-clear-btn {
+  display: none;
+}
+
+.header-contact-site {
+  display:flex;
+  text-align: end;
+  font-weight: 500;
+  cursor: pointer; 
+}
+
+.header-contact-container {
+  margin-top: auto; /* Przesuwa kontener kontaktowy na dół */
+  display: flex;
+  justify-content: flex-end; /* Wyśrodkowanie zawartości kontenera kontaktowego */
+  font-size: 24px;
+}
+
+.header-contact-container a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+.header-contact-container a:hover{
+  color:violet;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-info {
+  width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-contact-container .contact-info p {
+  margin: 10px 0;
+}
+
+.header-contact-container .contact-info p strong {
+  color: #333;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Wyśrodkowanie karty w pionie */
+  flex-direction: column;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+}
+
+.contact-title-label {
+  text-align: center;
+  width: 100%;
+  font-size: 36px;
+  font-weight: 500;
+}
+.contact-info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Wyśrodkowanie karty w pionie */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+  padding: 20px;
+  width: 50%;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-container .contact-info-card {
+  margin-bottom: 20px; /* Dodaj margines między kartami */
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="basket.css">
+    <title>Paruzel Store | Koszyk</title>
+</head>
+<body class="basket-body">
+<header>
+    <h1 class="header-title">
+        <a href="./index.html">
+            <span>Paruzel</span>
+            <span>Store</span>
+            <span>&#x25BA;</span>
+        </a>
+    </h1>
+</header>
+    <div class="main-container">
+        <div id="basketSummary" class="basket-summary">
+            <ul id="basketItems"></ul>
+        </div>
+        <div class="summary-container">
+          <h2 class="summary-title">Podsumowanie:</h2>
+          <div class="summary-details">
+              <!-- Tutaj będą szczegóły podsumowania -->
+          </div>
+        <div class="basket-actions">
+            <button id="summarizeButton" class="checkout-button" onclick="summarizeBasket()">Zrealizuj</button>
+            <button id="clearButton" class="clear-button" onclick="clearBasket()">Wyczyść koszyk</button>
+        </div>
+    </div>
+<div class="author-title">
+    <p class="author-info">by Mateusz Paruzel</p>
+</div>
+<script src="./basket.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+</body>
+</html>
